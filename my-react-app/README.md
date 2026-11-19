@@ -1,16 +1,39 @@
-# React + Vite
+# Shopping Cart App (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ATU React project — shopping cart application built with Vite + React.
 
-Currently, two official plugins are available:
+## What's in this slice (requirement 1)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Product catalogue with **9 products** across **3 categories** (Electronics, Furniture, Books)
+- Each product shows **name, image, price, category**, and an **Add to Cart** button
+- Products live in an array of objects in `src/data/products.js`
+- Component tree matches the brief: `App` → `ProductList` → `Product`, plus `Cart` and `Statistics` placeholders
 
-## React Compiler
+## Run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+cd my-react-app
+npm install
+npm run dev -- --host 127.0.0.1 --port 3847
+```
 
-## Expanding the ESLint configuration
+Open the URL Vite prints (default here: `http://127.0.0.1:3847`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project layout
+
+```
+src/
+  data/products.js      # catalogue data (+ id tip from the brief)
+  components/
+    ProductList.jsx     # map() over products
+    Product.jsx         # one card via props
+    Cart.jsx            # placeholder (req 3)
+    Statistics.jsx      # placeholder (req 4)
+  App.jsx
+```
+
+## Coming next
+
+2. Search with `useState` + `filter()`
+3. Cart add/remove + `CartContext`
+4. Statistics with `filter()` / `reduce()` + `useEffect` title/popup
