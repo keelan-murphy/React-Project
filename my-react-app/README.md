@@ -1,16 +1,18 @@
-# React + Vite
+# Shopping Cart App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React project (ATU) — same coding style as the labs (props, map, useState, etc.).
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+cd my-react-app
+npm install
+npm run dev -- --host 127.0.0.1 --port 3847
+```
 
-## React Compiler
+## Requirement 1 done
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 9 products in an array of objects (3 categories)
+- `ProductList` uses `map()` to render each `Product`
+- Each product shows name, image, price, category + Add to Cart button
+- Missing key from the brief tip: `id`
