@@ -1,5 +1,5 @@
 import React from "react";
-import {createContext, useContext } from "react";
+import {createContext, useContext, useState } from "react";
 
 const UserContext=createContext();
 //This creates a context object//
@@ -54,11 +54,24 @@ function Product(props) {
 
 // Goes through the products box and makes one Product card for each game.
 function ProductList(props) {
+  const [search, setSearch] = useState("") // the text in the search box
+
+  // Keep a game only if its name contains the search text
+  const filteredProducts = props.products.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase())
+  )
+
   return (
     <div>
       <h2>Products</h2>
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
+      />
       <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-        {props.products.map((product) => (
+        {filteredProducts.map((product) => (
           <Product
             key={product.id}
             id={product.id}
@@ -99,12 +112,12 @@ export default function App() {
   // id is the extra key the brief said was missing.
   const products = [
   { id: 1, name: "GTA VI", price: 80, category: "Open World", image: "/images/gta.jpg" },
-  { id: 2, name: "Red Dead Redemption", price: 30, category: "Open World", image: "/images/rdr.jpg" },
+  { id: 2, name: "Red Dead Redemption", price: 60, category: "Open World", image: "/images/rdr.jpg" },
   { id: 3, name: "Ghost of Tsushima", price: 45, category: "Open World", image: "/images/got.jpg" },
-  { id: 4, name: "Resident Evil 8", price: 40, category: "Action", image: "/images/re8.jpg" },
+  { id: 4, name: "Resident Evil 8", price: 50, category: "Action", image: "/images/re8.jpg" },
   { id: 5, name: "Uncharted", price: 20, category: "Action", image: "/images/uncharted.jpg" },
   { id: 6, name: "Call of Duty", price: 70, category: "Action", image: "/images/cod.jpg" },
-  { id: 7, name: "Fifa", price: 70, category: "Sports", image: "/images/fifa.jpg" },
+  { id: 7, name: "Fifa", price: 10, category: "Sports", image: "/images/fifa.jpg" },
   { id: 8, name: "Mario Kart", price: 60, category: "Sports", image: "/images/mk.jpg" },
   { id: 9, name: "Minecraft", price: 25, category: "Open World", image: "/images/mc.jpg" },
 ];
