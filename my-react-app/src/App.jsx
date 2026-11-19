@@ -98,16 +98,16 @@ export default function App() {
   // The box of games. Each object is one game.
   // id is the extra key the brief said was missing.
   const products = [
-    { id: 1, name: "GTA VI", price: 80, category: "Open World", image: "/images/gta.svg" },
-    { id: 2, name: "Red Dead Redemption", price: 30, category: "Open World", image: "/images/rdr.svg" },
-    { id: 3, name: "Ghost of Tsushima", price: 45, category: "Open World", image: "/images/tsushima.svg" },
-    { id: 4, name: "Resident Evil 8", price: 40, category: "Action", image: "/images/re8.svg" },
-    { id: 5, name: "Uncharted", price: 20, category: "Action", image: "/images/uncharted.svg" },
-    { id: 6, name: "Call of Duty", price: 70, category: "Action", image: "/images/cod.svg" },
-    { id: 7, name: "FC27", price: 70, category: "Sports", image: "/images/fc27.svg" },
-    { id: 8, name: "Mario Kart", price: 60, category: "Sports", image: "/images/mariokart.svg" },
-    { id: 9, name: "Minecraft", price: 25, category: "Open World", image: "/images/minecraft.svg" },
-  ];
+  { id: 1, name: "GTA VI", price: 80, category: "Open World", image: "/images/gta.jpg" },
+  { id: 2, name: "Red Dead Redemption", price: 30, category: "Open World", image: "/images/rdr.jpg" },
+  { id: 3, name: "Ghost of Tsushima", price: 45, category: "Open World", image: "/images/got.jpg" },
+  { id: 4, name: "Resident Evil 8", price: 40, category: "Action", image: "/images/re8.jpg" },
+  { id: 5, name: "Uncharted", price: 20, category: "Action", image: "/images/uncharted.jpg" },
+  { id: 6, name: "Call of Duty", price: 70, category: "Action", image: "/images/cod.jpg" },
+  { id: 7, name: "Fifa", price: 70, category: "Sports", image: "/images/fifa.jpg" },
+  { id: 8, name: "Mario Kart", price: 60, category: "Sports", image: "/images/mk.jpg" },
+  { id: 9, name: "Minecraft", price: 25, category: "Open World", image: "/images/mc.jpg" },
+];
 
   return (
     <UserContext.Provider value={user}>
