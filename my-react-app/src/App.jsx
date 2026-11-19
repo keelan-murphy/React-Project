@@ -2,7 +2,7 @@ import React from "react";
 import {createContext, useContext } from "react";
 
 const UserContext=createContext();
-//This creates a contect object//
+//This creates a context object//
 // You can think of this as creating a new channel for holding and sharing data (across many components)
 
 function UserGreeting() {
@@ -35,14 +35,97 @@ function Header({ user }) {
   );
 }
 
+// One product card. Same idea as MemberCard: props holds the notes for this one game.
+function Product(props) {
+  console.log(props);
+
+  return (
+    <div style={{ border: "1px solid black", padding: "10px", width: "200px" }}>
+      <img src={props.image} alt={props.name} width="180" />
+      <h3>{props.name}</h3>
+      <p>€{props.price}</p>
+      <p>{props.category}</p>
+      <button onClick={() => console.log("Add to cart:", props.name)}>
+        Add to Cart
+      </button>
+    </div>
+  );
+}
+
+// Goes through the products box and makes one Product card for each game.
+function ProductList(props) {
+  return (
+    <div>
+      <h2>Products</h2>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+        {props.products.map((product) => (
+          <Product
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            category={product.category}
+            image={product.image}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Cart() {
+  return (
+    <div>
+      <h2>Shopping Cart</h2>
+      <p>Cart is empty</p>
+      <p><b>Total: €0</b></p>
+    </div>
+  );
+}
+
+function Statistics() {
+  return (
+    <div>
+      <h2>Cart Statistics</h2>
+      <p>Total Items: 0</p>
+    </div>
+  );
+}
+
 export default function App() {
   const user = "Keelan";
+
+  // The box of games. Each object is one game.
+  // id is the extra key the brief said was missing.
+  const products = [
+    { id: 1, name: "GTA VI", price: 80, category: "Open World", image: "/images/gta.svg" },
+    { id: 2, name: "Red Dead Redemption", price: 30, category: "Open World", image: "/images/rdr.svg" },
+    { id: 3, name: "Ghost of Tsushima", price: 45, category: "Open World", image: "/images/tsushima.svg" },
+    { id: 4, name: "Resident Evil 8", price: 40, category: "Action", image: "/images/re8.svg" },
+    { id: 5, name: "Uncharted", price: 20, category: "Action", image: "/images/uncharted.svg" },
+    { id: 6, name: "Call of Duty", price: 70, category: "Action", image: "/images/cod.svg" },
+    { id: 7, name: "FC27", price: 70, category: "Sports", image: "/images/fc27.svg" },
+    { id: 8, name: "Mario Kart", price: 60, category: "Sports", image: "/images/mariokart.svg" },
+    { id: 9, name: "Minecraft", price: 25, category: "Open World", image: "/images/minecraft.svg" },
+  ];
 
   return (
     <UserContext.Provider value={user}>
     <div style={{ border: "2px solid black", padding: "10px" }}>
       <h1>Online Store ( for {user}!!)</h1>
       <Header user={user} />
+
+      <hr></hr>
+
+      <ProductList products={products} />
+
+      <hr></hr>
+
+      <Cart />
+
+      <hr></hr>
+
+      <Statistics />
     </div>
     </UserContext.Provider>
   );
