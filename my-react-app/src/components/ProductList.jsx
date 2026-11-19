@@ -1,19 +1,25 @@
 import Product from './Product.jsx'
-import { products } from '../data/products.js'
 
-// ProductList — renders the catalogue with map().
-// Exam tip: map() turns an array of data into an array of JSX elements.
-// The `key` must be unique and stable — that is why every product has an id.
-function ProductList() {
+// ProductList receives the products array through props
+// map() turns each product object into a <Product /> component
+function ProductList(props) {
   return (
-    <section className="panel">
+    <div>
       <h2>Products</h2>
-      <div className="product-grid">
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
+      <div className="product-container">
+        {props.products.map((product) => (
+          // key must be unique - that is why each product has an id
+          <Product
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            category={product.category}
+            image={product.image}
+          />
         ))}
       </div>
-    </section>
+    </div>
   )
 }
 

@@ -1,24 +1,20 @@
-// Product — one reusable card. Receives its data via props.
-// Exam tip: props are how a parent passes data down to a child.
-function Product({ product }) {
-  const { name, price, category, image } = product
+import './Product.css'
 
-  function handleAddToCart() {
-    // Cart wiring comes in requirement 3 (CartContext).
-    // For now the button exists so the catalogue meets requirement 1.
-    console.log(`Add to cart: ${name}`)
-  }
+// Product component - like MemberCard from the lab
+// props holds one product's data (name, price, category, image, id)
+function Product(props) {
+  console.log(props)
 
   return (
-    <article className="product-card">
-      <img className="product-image" src={image} alt={name} />
-      <h3 className="product-name">{name}</h3>
-      <p className="product-price">€{price}</p>
-      <p className="product-category">{category}</p>
-      <button type="button" className="btn" onClick={handleAddToCart}>
+    <div className="product-card">
+      <img src={props.image} alt={props.name} />
+      <h3>{props.name}</h3>
+      <p>€{props.price}</p>
+      <p>{props.category}</p>
+      <button onClick={() => console.log("Add to cart:", props.name)}>
         Add to Cart
       </button>
-    </article>
+    </div>
   )
 }
 

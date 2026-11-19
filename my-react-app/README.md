@@ -1,15 +1,8 @@
-# Shopping Cart App (React)
+# Shopping Cart App
 
-ATU React project — shopping cart application built with Vite + React.
+React project (ATU) — same coding style as the labs (props, map, useState, etc.).
 
-## What's in this slice (requirement 1)
-
-- Product catalogue with **9 products** across **3 categories** (Electronics, Furniture, Books)
-- Each product shows **name, image, price, category**, and an **Add to Cart** button
-- Products live in an array of objects in `src/data/products.js`
-- Component tree matches the brief: `App` → `ProductList` → `Product`, plus `Cart` and `Statistics` placeholders
-
-## Run locally
+## Run
 
 ```bash
 cd my-react-app
@@ -17,23 +10,9 @@ npm install
 npm run dev -- --host 127.0.0.1 --port 3847
 ```
 
-Open the URL Vite prints (default here: `http://127.0.0.1:3847`).
+## Requirement 1 done
 
-## Project layout
-
-```
-src/
-  data/products.js      # catalogue data (+ id tip from the brief)
-  components/
-    ProductList.jsx     # map() over products
-    Product.jsx         # one card via props
-    Cart.jsx            # placeholder (req 3)
-    Statistics.jsx      # placeholder (req 4)
-  App.jsx
-```
-
-## Coming next
-
-2. Search with `useState` + `filter()`
-3. Cart add/remove + `CartContext`
-4. Statistics with `filter()` / `reduce()` + `useEffect` title/popup
+- 9 products in an array of objects (3 categories)
+- `ProductList` uses `map()` to render each `Product`
+- Each product shows name, image, price, category + Add to Cart button
+- Missing key from the brief tip: `id`
